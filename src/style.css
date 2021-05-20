@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* header */
+header {
+  background-color: rgb(37, 37, 37);
+  color: whitesmoke;
+  text-align: center;
+  font-family: 'Pattaya', sans-serif;
+  font-size: 50px;
+}
+
+/* main */
+
+main {
+  display: flex;
+}
+
+/* left */
+
+#left-section {
+  height: 100vh;
+  width: 30%;
+  background: rgb(165, 165, 165);
+  justify-self: center;
+}
+
+#project-todo-form {
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  justify-content: center;
+  margin: 10px auto;
+  padding: 25px 0;
+}
+
+#project-todo-form > input {
+  padding: 10px;
+  margin: 5px 0;
+  font-size: large;
+  font-weight: 600;
+}
+
+#Add-new-project {
+  padding: 1rem 2rem;
+  margin:10% auto;
+  margin-left: 35%;
+  border: none;
+  background: #000;
+  color: whitesmoke;
+  font-size: 25px;
+
+}
+
+/* right */
+
+#right-section {
+  height: 100vh;
+  width: 70%;
+  float: right;
+  background: rgb(192, 190, 190);
+  text-align: center;
+}
+
+#right-section > h3 {
+  font-size: 50px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-bottom: 2%;
+}
+
+#todo-form {
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  padding: 25px;
+  display: inline-block;
+  width: 40%;
+  margin: 10% auto;
+}
+
+#todo-form > input {
+  padding: 5px;
+  width: 60%;
+  margin: 5px 0;
+  font-size: large;
+  font-weight: 600;
+}
+
+#todo-form > label {
+  font-size: large;
+  font-weight: 600;
+}
+
+/* card */
+#todo-card {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+#card-left-side {
+  display: flex;
+}
+
+#card-left-side > h4 {
+  text-align: start;
+  font-size: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#card-left-side > p {
+  max-width: 50%;
+}
+
+#card-right-side {
+  font-size: 35px;
+  display: flex;
+} 
+
+#card-right-side > h6 {
+  margin-top: 10%;
+  margin-right: 10px;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#card-right-side > input {
+  max-height: 70%;
+  padding: 10px;
+  font-weight: 900;
+  background-color: red;
+  border: none;
+  margin-top: 5%;
+  margin-bottom: 10px;
+}
+
+/* footer */
+
+footer {
+
+}
