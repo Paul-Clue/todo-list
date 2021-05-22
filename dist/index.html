@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../asset/css/style.css">
+  <link rel="stylesheet" href="../src/style.css">
 </head>
 <body>
   <div id="content ">
@@ -14,7 +14,6 @@
     </header>
     <main>
       <section id="left-section">
-        <button id="Add-new-project">Add Project</button>
         <form action="#" method="post" id="project-todo-form">
           <input type="text" name="project-name" id="project-name" placeholder="Project...">
           <input type="button" value="Create Project">
@@ -33,8 +32,7 @@
           </div>
         </div>
         <form action="#" method="post" id="todo-form">
-          <input type="text" name="title" id="title" placeholder="Title"><br>
-          <input type="text" name="description" id="description" placeholder="Description"><br>
+          <input type="text" name="description" id="description" placeholder="Needs To Be Done"><br>
           <input type="datetime" name="duedate" id="duedate" placeholder="Due Date"><br>
           <label for="priority">Priority</label>
           <span class="priority">
@@ -44,7 +42,7 @@
             <input type="radio" name="priority" id="4">
             <input type="radio" name="priority" id="5">
           </span><br>
-          <input type="button" value="Add Todo">
+          <input type="button" id="butt" value="Add Todo">
         </form>
       </section>
     </main>
