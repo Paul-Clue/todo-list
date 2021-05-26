@@ -1,8 +1,5 @@
 
 const newToDo = () => {
-
-  // let cardArray = JSON.parse(localStorage.getItem('cardArray'));
-
   const card = document.createElement('div');
   card.setAttribute('class', 'card');
   card.setAttribute('style', 'margin-top: 3px;');
@@ -30,9 +27,6 @@ const newToDo = () => {
   card2.appendChild(card22);
   card2.appendChild(card3);
   card.appendChild(card2);
-
-  // cardArray[index].push(card);
-  // localStorage.setItem("cardArray", JSON.stringify(cardArray));
 
   return card;
 };

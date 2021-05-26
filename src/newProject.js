@@ -1,5 +1,5 @@
 const newProject = () => {
-  let cardArray = [];
+  let cardArray = JSON.parse(localStorage.getItem('cardArray'));
   const card = document.createElement('div');
   card.setAttribute('class', 'card card2');
   card.setAttribute('style', 'margin-top: 5px;');
@@ -23,7 +23,7 @@ const newProject = () => {
   // card.appendChild(cardButton);
 
   if(localStorage.getItem('cardArray') === null){
-    localStorage.setItem('cardArray', JSON.stringify([]));
+    localStorage.setItem('cardArray', JSON.stringify(cardArray));
   }else{
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
   }
