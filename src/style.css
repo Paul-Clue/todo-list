@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+}
+
 /* header */
 header {
   background-color: rgb(37, 37, 37);
@@ -19,12 +27,13 @@ header {
 
 main {
   display: flex;
+  background: rgb(165, 165, 165);
 }
 
 /* left */
 
 #left-section {
-  height: 100vh;
+  height: 100%;
   width: 30%;
   background: rgb(165, 165, 165);
   justify-self: center;
@@ -51,7 +60,7 @@ main {
 /* right */
 
 #right-section {
-  height: 100vh;
+  height: 100%;
   width: 70%;
   float: right;
   background: rgb(192, 190, 190);
@@ -88,11 +97,11 @@ main {
   font-weight: 600;
 }
 
-#todo-form > #butt {
+#todo-form > .butt{
   width: 10%;
 }
 
-#todo-form > #duedate {
+#todo-form > #date {
   width: 20%;
 }
 

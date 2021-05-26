@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,23 +9,20 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 </head>
 <body>
-  <div id="content ">
+  <div id="content " style="height: 100%;">
     <header>
-      <h1>To-do List</h1>
+      <h1>ToDo List</h1>
     </header>
-    <main>
+    <main style="height: 100%;">
       <!-- Project Side -->
-      <section id="left-section">
+      <section id="left-section" style="height: 100%;">
         <form action="#" method="post" id="project-todo-form">
           <input type="text" name="projectName" id="projectName" placeholder="Project...">
           <input type="button" value="Create Project" id="button1">
         </form>
-        <div class="card">
-          <div class="card-header text-center fw-bold">
-            Project: &nbsp; All To-Dos
-          </div>
-          <div class="card-body d-flex justify-content-center">
-            <a href="#" class="btn btn-primary">All To-dos From All Arojects</a>
+        <div class="card card2">
+          <div class="card-header text-center fw-bold ">
+            Project: &nbsp; <span class="text-primary">All ToDos</span>
           </div>
         </div>
         <div class="projects"></div>
@@ -33,7 +30,7 @@
 
       <!-- To-Do Side -->
       <section id="right-section">
-        <h3>project Title</h3>
+          <h3 class="projectTitle"></h3>
         <!-- <div id="todo-card">
           <div id="card-left-side">
             <h4>Title</h4>
@@ -45,27 +42,32 @@
           </div>
         </div> -->
         <form action="#" method="post" id="todo-form">
-          <input type="text" name="title" id="title" placeholder="Title"><br>
+          <input type="text" name="title" id="title" placeholder="Title" ><br>
           <input type="text" name="description" id="description" placeholder="what Needs To Be Done"><br>
-          <input type="datetime" name="duedate" id="duedate" placeholder="Due Date"><br>
-          <input type="button" id="butt" value="Add To-do">
+          <input type="date" name="date" id="date" placeholder="Due Date"><br>
+          <input type="button" class="butt" value="Add ToDo">
         </form>
         <span class="priority">
           <label for="priority" class="labe">Priority</label>
-          <input type="radio" name="priority" class="rad labe" id="1" value="1">
+          <input type="radio" name="priority" class="rad labe" id="one" value="1" >
           <label for="1" class="labe" style="margin-left: 0;">1</label>
 
-          <input type="radio" name="priority" class="rad labe" id="2" value="2">
+          <input type="radio" name="priority" class="rad labe" id="two" value="2">
           <label for="2" class="labe" style="margin-left: 0;">2</label>
 
-          <input type="radio" name="priority" class="rad labe" id="3" value="3">
+          <input type="radio" name="priority" class="rad labe" id="three" value="3">
           <label for="3" class="labe" style="margin-left: 0;">3</label>
 
-          <input type="radio" name="priority" class="rad labe" id="4" value="4">
-          <label for="3" class="labe" style="margin-left: 0;">4</label>
-
+          <input type="radio" name="priority" class="rad labe" id="four" value="4">
+          <label for="4" class="labe" style="margin-left: 0;">4</label>
+          <input type="hidden" id="result">
         </span><br>
+        
+        <section class="toDos">
+          <div class="toDoList"></div>
+        </section>
       </section>
+      
     </main>
     <footer>
 
