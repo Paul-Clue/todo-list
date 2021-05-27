@@ -15,9 +15,10 @@ if(localStorage.getItem('cardArray') === null){
 
 let innerArray = [];
 cardArray = JSON.parse(localStorage.getItem('cardArray'));
-
+const appendage = document.querySelector('.toDos');
+const doList = document.createElement('div');
+doList.setAttribute('class', 'toDoList');
 for(let j = 0; j < cardArray.length; j++){
-
   for(let i = 0; i < cardArray[j].length; i++){
     
     localStorage.setItem('innerArray', JSON.stringify(cardArray[j][i]));
@@ -37,19 +38,21 @@ for(let j = 0; j < cardArray.length; j++){
   }
 }
 
-console.log('CHECK CHECK');
 
-if(appendage.firstChild == null){
-  return;
-}else{
-  removeAllChildNodes(appendage);
-}
+console.log('CHECK CHECK');
+// if(appendage.firstChild == null){
+  
+//   let go = true;
+  
+// }else{
+//   removeAllChildNodes(appendage);
+// }
 
 appendage.appendChild(doList);
-localStorage.setItem("cardArray[parseInt(elem.target.id)]", JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
-localStorage.setItem("cardArray", JSON.stringify(cardArray));
+// localStorage.setItem("cardArray[parseInt(elem.target.id)]", JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
+// localStorage.setItem("cardArray", JSON.stringify(cardArray));
 
-projectView(this.innerText);
+projectView('Project: All ToDos');
 
 
 const projectSide = document.querySelector('.projects');
