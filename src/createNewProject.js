@@ -23,10 +23,10 @@ const createNewProject = () => {
 
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
   cardArray.push(cardArray2);
-  console.log('Before: ' + cardArray);
+  // console.log('Before: ' + cardArray);
 
   localStorage.setItem("cardArray", JSON.stringify(cardArray));
-  console.log('After: ' + cardArray);
+  // console.log('After: ' + cardArray);
 
   const projectList = document.querySelectorAll('.card3');
 

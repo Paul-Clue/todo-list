@@ -2,25 +2,13 @@ import newToDo from './newTodo';
 import removeAllChildNodes from './removeAllChildNodes';
 
 let cardArray = JSON.parse(localStorage.getItem('cardArray'));
-console.log(cardArray);
-if(localStorage.getItem('toDodArray') === null){
-  localStorage.setItem('ToDoArray', JSON.stringify([]));
-}else{
-  toDoArray = JSON.parse(localStorage.getItem('toDoArray'));
-}
 
-// if(localStorage.getItem('cardArray') === null){
-//   localStorage.setItem('cardArray', JSON.stringify([]));
-//    cardArray = JSON.parse(localStorage.getItem('cardArray'));
-// }else{
-//    cardArray = JSON.parse(localStorage.getItem('cardArray'));
-// }
 const projectSide = document.querySelector('.projects');
 
 
 
 const createToDo = (elem) => {
-  // console.log(cardArray);
+
   const title = document.querySelector('#title');
   if(title.value == ''){
     alert('Please Enter a ToDo Title');
@@ -47,7 +35,15 @@ const createToDo = (elem) => {
 
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
 
-    cardArray[parseInt(elem.target.id)].push(json);
+    const checkTitle = document.querySelector('.projectTitle');
+    console.log(checkTitle.innerHTML);
+    if(checkTitle.innerHTML == 'Project: &nbsp; All ToDos'){
+
+      cardArray.push(json);
+    }else{
+
+      cardArray[parseInt(elem.target.id)].push(json);
+    }
 
     localStorage.setItem("cardArray", JSON.stringify(cardArray[parseInt(elem.target.id)]));
     localStorage.setItem("cardArray", JSON.stringify(cardArray));
@@ -57,11 +53,38 @@ const createToDo = (elem) => {
     doList.setAttribute('class', 'toDoList');
 
 
-    for(let i = 0; i < cardArray[parseInt(elem.target.id)].length; i++){
+    let innerArray =[];
+    cardArray = JSON.parse(localStorage.getItem('cardArray'));
+    if(checkTitle.innerHTML == 'Project: &nbsp; All ToDos'){
+      for(let j = 0; j < cardArray.length; j++){
 
-      doList.innerHTML += JSON.parse(cardArray[parseInt(elem.target.id)][i]);
+    
+        for(let i = 0; i < cardArray[j].length; i++){
+          localStorage.setItem('innerArray', JSON.stringify(cardArray[j]));
+          console.log('This is at JJ: ' + cardArray[j]);
+          try {
+            innerArray = JSON.parse('innerArray');
+            
+          }
+          catch(err) {
+            
+            i = cardArray[j].length -1;
+           innerArray = JSON.parse(localStorage.getItem('innerArray'));
+            console.log('TEST TEST');
+          }
+          doList.innerHTML += innerArray;
 
+          console.log('Print all todos is running.');
+
+        }
+      }
+    }else{
+      for(let i = 0; i < cardArray[parseInt(elem.target.id)].length; i++){
+        console.log('This is the ELSE');
+        doList.innerHTML += JSON.parse(cardArray[parseInt(elem.target.id)][i]);
+       }
     }
+    
 
     if(appendage.firstChild == null){
       appendage.appendChild(doList);
@@ -73,7 +96,7 @@ const createToDo = (elem) => {
     localStorage.setItem("cardArray[parseInt(elem.target.id)]", JSON.stringify(cardArray[parseInt(elem.target.id)]));
     localStorage.setItem("cardArray", JSON.stringify(cardArray));
 
-      cardArray = JSON.parse(localStorage.getItem('cardArray'));
+     cardArray = JSON.parse(localStorage.getItem('cardArray'));
   }
 }
 

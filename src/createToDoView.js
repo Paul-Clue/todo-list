@@ -21,20 +21,21 @@ const createToDoView = function() {
 
   let innerArray = [];
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
-
+  console.log(cardArray[this.parentElement.id].length);
+  console.log(cardArray);
   for(let i = 0; i < cardArray[this.parentElement.id].length; i++){
     localStorage.setItem('innerArray', JSON.stringify(cardArray[this.parentElement.id][i]));
     
      innerArray = JSON.parse(cardArray[this.parentElement.id][i])
      
     doList.innerHTML += innerArray;
-    console.log(doList.innerHTML);
-    console.log(this.parentElement.id);
-    console.log(parseInt(this.parentElement.id));
+    // console.log(doList.innerHTML);
+    // console.log(this.parentElement.id);
+    // console.log(parseInt(this.parentElement.id));
     console.log('check');
   }
-  console.log(parseInt(this.parentElement.id));
-  console.log('length:' + cardArray[this.parentElement.id].length);
+  // console.log(parseInt(this.parentElement.id));
+  // console.log('length:' + cardArray[this.parentElement.id].length);
 
   if(appendage.firstChild == null){
     return;
@@ -44,7 +45,7 @@ const createToDoView = function() {
 
   appendage.appendChild(doList);
   localStorage.setItem("cardArray[parseInt(elem.target.id)]", JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
-    localStorage.setItem("cardArray", JSON.stringify(cardArray));
+  localStorage.setItem("cardArray", JSON.stringify(cardArray));
 
   projectView(this.innerText);
 }
