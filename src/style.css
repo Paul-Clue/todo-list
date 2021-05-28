@@ -73,7 +73,7 @@ main {
   margin-bottom: 2%;
 }
 
-#todo-form {
+.todo-form {
   border-top: 2px solid black;
   padding: 10px;
   padding-bottom: 0;
@@ -84,7 +84,7 @@ main {
   margin-bottom: 1px;
 }
 
-#todo-form > input {
+.todo-form > input {
   padding: 5px;
   width: 60%;
   margin: 5px 0;
@@ -92,16 +92,16 @@ main {
   font-weight: 600;
 }
 
-#todo-form > label {
+.todo-form > label {
   font-size: large;
   font-weight: 600;
 }
 
-#todo-form > .butt{
+.todo-form > .butt{
   width: 10%;
 }
 
-#todo-form > #date {
+.todo-form > #date {
   width: 20%;
 }
 

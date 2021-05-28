@@ -1,6 +1,13 @@
 import newToDo from './newTodo';
 import removeAllChildNodes from './removeAllChildNodes';
 
+let idArray = [];
+if(localStorage.getItem('idArray') === null){
+  localStorage.setItem('idArray', JSON.stringify([]));
+}else{
+   idArray = JSON.parse(localStorage.getItem('idArray'));
+}
+
 let cardArray = JSON.parse(localStorage.getItem('cardArray'));
 
 const projectSide = document.querySelector('.projects');
@@ -8,35 +15,53 @@ const projectSide = document.querySelector('.projects');
 
 
 const createToDo = (elem) => {
-
+  const checkTitle = document.querySelector('.projectTitle');
   const title = document.querySelector('#title');
   if(title.value == ''){
     alert('Please Enter a ToDo Title');
     return;
   }else{
+    let todo = newToDo();
+    const priority = document.querySelector('#result');
+    if(priority.value == ''){
+      alert('Please Select a Priority ');
+      return;
+    }else if(priority.value == 1){
+      todo.style.backgroundColor = "red";
+    }else if(priority.value == 2){
+      todo.style.backgroundColor = "yellow";
+    }else if(priority.value == 3){
+      todo.style.backgroundColor = "lightblue";
+    }else{
+      todo.style.backgroundColor = "lightcyan";
+    }
 
-  let todo = newToDo();
-  const priority = document.querySelector('#result');
-  if(priority.value == ''){
-    alert('Please Select a Priority ');
-    return;
-  }else if(priority.value == 1){
-    todo.style.backgroundColor = "red";
-  }else if(priority.value == 2){
-    todo.style.backgroundColor = "yellow";
-  }else if(priority.value == 3){
-    todo.style.backgroundColor = "lightblue";
-  }else{
-    todo.style.backgroundColor = "lightcyan";
-  }
+    todo.setAttribute('id', 1);
+    for(let i = 0; i < idArray.length; i++){
+      if(idArray[i] == todo.id){
+        let num = parseInt(idArray[i]);
+        todo.setAttribute('id', (num + 1));
+      }
+    }
+    let changeId = document.querySelector('#idButt');
+    const switchId = function(elem) {
+      changeId.value = elem.target.id;
+      console.log(changeId.value);
+    }
+
+    idArray.push(todo.id);
+    // console.log(todo.children[0].children[2].firstChild);
+    todo.children[0].children[2].firstChild.setAttribute('id', todo.id);
+    todo.children[0].children[2].firstChild.addEventListener('click', switchId);
+    console.log(todo.children[0].children[2].firstChild.id);
+    // console.log(todo.childNodes);
+    // console.log(todo.firstChild.children[1].firstChild.id);
+    localStorage.setItem('idArray', JSON.stringify(idArray));
+
     todo = todo.outerHTML;
-
     let json = JSON.stringify(todo);
-
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
 
-    const checkTitle = document.querySelector('.projectTitle');
-    // console.log(checkTitle.innerHTML);
     if(checkTitle.innerHTML == 'Project: &nbsp; All ToDos'){
 
       cardArray.push(json);
@@ -70,22 +95,13 @@ const createToDo = (elem) => {
             i = cardArray[j].length -1;
             innerArray = JSON.parse(cardArray[j]);
           }
-    
-          console.log('This is i: ' + i);
           doList.innerHTML += innerArray;
-    
-          console.log('Print all todos is running.');
     
         }
       }
 
 
-
-
-
       // for(let j = 0; j < cardArray.length; j++){
-
-    
       //   for(let i = 0; i < cardArray[j].length; i++){
       //     localStorage.setItem('innerArray', JSON.stringify(cardArray[j]));
       //     // console.log('This is at JJ: ' + cardArray[j]);
@@ -108,7 +124,6 @@ const createToDo = (elem) => {
       // }
     }else{
       for(let i = 0; i < cardArray[parseInt(elem.target.id)].length; i++){
-        // console.log('This is the ELSE');
         doList.innerHTML += JSON.parse(cardArray[parseInt(elem.target.id)][i]);
        }
     }
@@ -125,6 +140,16 @@ const createToDo = (elem) => {
     localStorage.setItem("cardArray", JSON.stringify(cardArray));
 
      cardArray = JSON.parse(localStorage.getItem('cardArray'));
+     if(doList.firstChild == null){
+      return;
+    }else{
+      let doListChildren = doList.children;
+      for(let i = 0; i < doListChildren.length; i++){
+        doListChildren[i].addEventListener('click', switchId);
+      }
+      
+    }
+
   }
 }
 

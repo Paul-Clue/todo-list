@@ -57,6 +57,22 @@ const allToDo = function() {
   localStorage.setItem("cardArray", JSON.stringify(cardArray));
 
   projectView(this.innerText);
+
+  let changeId = document.querySelector('#idButt');
+    const switchId = function(elem) {
+      changeId.value = elem.target.id;
+      console.log(changeId.value);
+    }
+
+  if(doList.firstChild == null){
+    return;
+  }else{
+    let doListChildren = doList.children;
+    for(let i = 0; i < doListChildren.length; i++){
+      doListChildren[i].addEventListener('click', switchId);
+    }
+    
+  }
 }
 
 export default allToDo;

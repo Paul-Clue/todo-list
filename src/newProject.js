@@ -11,11 +11,11 @@ const newProject = () => {
 
   // const card3 = document.createElement('div');
   // card3.setAttribute('class', 'card-body d-flex justify-content-center');
-  
-  // const cardButton = document.createElement('a');
-  // cardButton.setAttribute('class', 'btn btn-primary');
-  // cardButton.setAttribute('href', '#');
-  // cardButton.textContent = 'Edit Project';
+  // <input type="button" class="butt" value="Add ToDo">
+  // const cardButton = document.createElement('input');
+  // cardButton.setAttribute('class', 'btn btn-primary butt');
+  // cardButton.setAttribute('type', 'button');
+  // cardButton.setAttribute('value', 'Add ToDo');
 
   // card3.appendChild(cardButton);
   // card2.appendChild(card3);
