@@ -1,5 +1,6 @@
 import removeAllChildNodes from './removeAllChildNodes';
 import projectView from './projectView';
+import ToDoViewStartup from './ToDoViewStartup';
 
 let cardArray = [];
 if(localStorage.getItem('cardArray') === null){
@@ -8,12 +9,23 @@ if(localStorage.getItem('cardArray') === null){
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
 }
 
-  
-const allToDo = function() {
+let projArray = [];
+if(localStorage.getItem('projArray') === null){
+  localStorage.setItem('projArray', JSON.stringify([]));
+}else{
+    projArray = JSON.parse(localStorage.getItem('projArray'));
+}
 
+  
+const startUp = function() {
+  const projectSide = document.querySelector('.projects');
   const appendage = document.querySelector('.toDos');
   const doList = document.createElement('div');
   doList.setAttribute('class', 'toDoList');
+
+  const projList = document.createElement('div');
+  projList.setAttribute('class', 'projList');
+
 
   let innerArray = [];
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
@@ -22,6 +34,7 @@ const allToDo = function() {
     
     for(let i = 0; i < cardArray[j].length; i++){
       
+
       localStorage.setItem('innerArray', JSON.stringify(cardArray[j][i]));
 
       try {
@@ -35,6 +48,7 @@ const allToDo = function() {
       doList.innerHTML += innerArray;
 
     }
+    
   }
 
   if(appendage.firstChild == null){
@@ -44,16 +58,34 @@ const allToDo = function() {
   }
 
   appendage.appendChild(doList);
-  localStorage.setItem("cardArray[parseInt(elem.target.id)]", JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
-  localStorage.setItem("cardArray", JSON.stringify(cardArray));
-
-  projectView(this.innerText);
 
   let changeId = document.querySelector('#idButt');
     const switchId = function(elem) {
       changeId.value = elem.target.id;
     }
 
+    
+    projArray = JSON.parse(localStorage.getItem('projArray'));
+    
+    let projj = '';
+
+  for(let i = 0; i < projArray.length; i++){
+    console.log(projArray.length);
+     projj = JSON.parse(projArray[i]);
+    projList.innerHTML += projj;
+  }
+
+  let projListKids = projList.children;
+
+  for(let i = 0; i < projListKids.length; i++){
+    projListKids[i].addEventListener('click', ToDoViewStartup);
+  }
+
+  console.log(projListKids);
+  console.log(projList);
+  projectSide.appendChild(projList);
+  console.log('something');
+  console.log(projArray[0]);
   if(doList.firstChild == null){
     return;
   }else{
@@ -63,6 +95,8 @@ const allToDo = function() {
     }
     
   }
+
+  
 }
 
-export default allToDo;
+export default startUp;

@@ -24,15 +24,21 @@ const newToDo = () => {
   card222.innerText = 'Description: ' + description.description.value;
 
   const card3 = document.createElement('div');
-  card3.setAttribute('class', 'card-body d-flex justify-content-center');
-  
+  card3.setAttribute('class', 'card-body d-flex justify-content-end');
+
   const cardButton = document.createElement('button');
-  cardButton.setAttribute('class', 'btn btn-primary');
+  cardButton.setAttribute('class', 'btn btn-secondary');
   cardButton.setAttribute('data-bs-toggle','modal');
   cardButton.setAttribute('data-bs-target', '#exampleModal');
   cardButton.innerText = 'Edit To-Do';
 
+  const cardButton2 = document.createElement('button');
+  cardButton2.setAttribute('class', 'btn btn-warning');
+  cardButton2.setAttribute('data-bs-toggle','modal');
+  cardButton2.innerText = 'Delete ToDo';
+
   card3.appendChild(cardButton);
+  card3.appendChild(cardButton2);
   card2.appendChild(card22);
   card2.appendChild(card3);
   card2.appendChild(card222);

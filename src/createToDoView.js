@@ -22,19 +22,17 @@ const createToDoView = function() {
   let changeId = document.querySelector('#idButt');
     const switchId = function(elem) {
       changeId.value = elem.target.id;
-      console.log(changeId.value);
     }
 
   let innerArray = [];
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
   for(let i = 0; i < cardArray[this.parentElement.id].length; i++){
-    // cardArray[this.parentElement.id][i].addEventListener('click', switchId);
+    // console.log('todo view:' + this.parentElement.id);
     localStorage.setItem('innerArray', JSON.stringify(cardArray[this.parentElement.id][i]));
     
      innerArray = JSON.parse(cardArray[this.parentElement.id][i])
     
     doList.innerHTML += innerArray;
-    console.log('check check' + cardArray[this.parentElement.id][i]);
   }
 
 
@@ -51,7 +49,6 @@ const createToDoView = function() {
   localStorage.setItem("cardArray", JSON.stringify(cardArray));
 
   projectView(this.innerText);
-  console.log("do list:" + doList.firstChild);
   if(doList.firstChild == null){
     return;
   }else{

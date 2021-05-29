@@ -36,7 +36,7 @@ const createToDo = (elem) => {
       todo.style.backgroundColor = "lightcyan";
     }
 
-    todo.setAttribute('id', 1);
+    todo.setAttribute('id', 0);
     for(let i = 0; i < idArray.length; i++){
       if(idArray[i] == todo.id){
         let num = parseInt(idArray[i]);
@@ -46,16 +46,12 @@ const createToDo = (elem) => {
     let changeId = document.querySelector('#idButt');
     const switchId = function(elem) {
       changeId.value = elem.target.id;
-      console.log(changeId.value);
     }
 
     idArray.push(todo.id);
-    // console.log(todo.children[0].children[2].firstChild);
     todo.children[0].children[2].firstChild.setAttribute('id', todo.id);
     todo.children[0].children[2].firstChild.addEventListener('click', switchId);
-    console.log(todo.children[0].children[2].firstChild.id);
-    // console.log(todo.childNodes);
-    // console.log(todo.firstChild.children[1].firstChild.id);
+
     localStorage.setItem('idArray', JSON.stringify(idArray));
 
     todo = todo.outerHTML;
@@ -70,7 +66,7 @@ const createToDo = (elem) => {
       cardArray[parseInt(elem.target.id)].push(json);
     }
 
-    localStorage.setItem("cardArray", JSON.stringify(cardArray[parseInt(elem.target.id)]));
+    // localStorage.setItem("cardArray", JSON.stringify(cardArray[parseInt(elem.target.id)]));
     localStorage.setItem("cardArray", JSON.stringify(cardArray));
     
     const appendage = document.querySelector('.toDos');
@@ -100,28 +96,6 @@ const createToDo = (elem) => {
         }
       }
 
-
-      // for(let j = 0; j < cardArray.length; j++){
-      //   for(let i = 0; i < cardArray[j].length; i++){
-      //     localStorage.setItem('innerArray', JSON.stringify(cardArray[j]));
-      //     // console.log('This is at JJ: ' + cardArray[j]);
-      //     try {
-      //       innerArray = JSON.parse('innerArray');
-            
-      //     }
-      //     catch(err) {
-            
-      //       i = cardArray[j].length -1;
-      //      innerArray = JSON.parse(localStorage.getItem('innerArray'));
-      //     //  innerArray = JSON.parse(localStorage.getItem(cardArray[j]));
-      //       // console.log(innerArray);
-      //     }
-      //     doList.innerHTML += innerArray;
-
-      //     // console.log('Print all todos is running.');
-
-      //   }
-      // }
     }else{
       for(let i = 0; i < cardArray[parseInt(elem.target.id)].length; i++){
         doList.innerHTML += JSON.parse(cardArray[parseInt(elem.target.id)][i]);

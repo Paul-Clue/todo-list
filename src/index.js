@@ -3,80 +3,21 @@ import newToDo from './newTodo';
 import projectView from './projectView';
 import createToDo from './createToDo';
 import createNewProject from './CreateNewProject';
-import allToDo from './allToDo';
+import startUp from './startUp';
 import editToDo from './editToDo';
+import allToDo from './allToDo';
 
-let cardArray = [];
-if(localStorage.getItem('cardArray') === null){
-  localStorage.setItem('cardArray', JSON.stringify([]));
+let projArray = [];
+if(localStorage.getItem('projArray') === null){
+  localStorage.setItem('projArray', JSON.stringify([]));
 }else{
-   cardArray = JSON.parse(localStorage.getItem('cardArray'));
+    projArray = JSON.parse(localStorage.getItem('projArray'));
 }
 
-let innerArray = [];
-cardArray = JSON.parse(localStorage.getItem('cardArray'));
-const appendage = document.querySelector('.toDos');
-const doList = document.createElement('div');
-doList.setAttribute('class', 'toDoList');
-for(let j = 0; j < cardArray.length; j++){
-  for(let i = 0; i < cardArray[j].length; i++){
-    
-    localStorage.setItem('innerArray', JSON.stringify(cardArray[j][i]));
-
-    try {
-      innerArray = JSON.parse(cardArray[j][i]);
-    }
-    catch(err) {
-      i = cardArray[j].length -1;
-      innerArray = JSON.parse(cardArray[j]);
-    }
-
-    console.log('This is i: ' + i);
-    doList.innerHTML += innerArray;
-
-    let changeId = document.querySelector('#idButt');
-    const switchId = function(elem) {
-      changeId.value = elem.target.id;
-      console.log(changeId.value);
-    }
-
-    const putEvent = function(){
-      if(doList.firstChild == null){
-        return;
-      }else{
-        let doListChildren = doList.children;
-        for(let i = 0; i < doListChildren.length; i++){
-          doListChildren[i].addEventListener('click', switchId);
-        }
-        
-      }
-    }
-
-    putEvent();
-
-    console.log('Print all todos is running.');
-  }
-}
-
-
-console.log('CHECK CHECK');
-// if(appendage.firstChild == null){
-  
-//   let go = true;
-  
-// }else{
-//   removeAllChildNodes(appendage);
-// }
-
-appendage.appendChild(doList);
-// localStorage.setItem("cardArray[parseInt(elem.target.id)]", JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
-// localStorage.setItem("cardArray", JSON.stringify(cardArray));
-
-// projectView('Project: &nbsp; All ToDos');
-
+startUp();
 
 const projectSide = document.querySelector('.projects');
-const projView = document.querySelector('.toDos');
+// const projView = document.querySelector('.toDos');
 
   const getVal = (elem) => {
   const val = elem.target.value;

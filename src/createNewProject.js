@@ -10,12 +10,25 @@ if(localStorage.getItem('cardArray') === null){
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
 }
 
+let projArray = [];
+if(localStorage.getItem('projArray') === null){
+  localStorage.setItem('projArray', JSON.stringify([]));
+}else{
+    projArray = JSON.parse(localStorage.getItem('projArray'));
+}
+
 const createNewProject = () => {
   const projectName = document.querySelector('#projectName');
   if(projectName.value == ''){
     alert('Please Enter a Project Title');
     return;
   }else{
+    projArray = JSON.parse(localStorage.getItem('projArray'));
+    let proj = newProject().card
+    proj = proj.outerHTML;
+    let json = JSON.stringify(proj);
+    projArray.push(json);
+    localStorage.setItem('projArray', JSON.stringify(projArray));
     projectSide.appendChild(newProject().card);
   }
 
@@ -23,10 +36,8 @@ const createNewProject = () => {
 
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
   cardArray.push(cardArray2);
-  // console.log('Before: ' + cardArray);
 
   localStorage.setItem("cardArray", JSON.stringify(cardArray));
-  // console.log('After: ' + cardArray);
 
   const projectList = document.querySelectorAll('.card3');
 
