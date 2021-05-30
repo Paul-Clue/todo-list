@@ -2,62 +2,57 @@ import removeAllChildNodes from './removeAllChildNodes';
 import projectView from './projectView';
 
 let cardArray = [];
-if(localStorage.getItem('cardArray') === null){
+if (localStorage.getItem('cardArray') === null) {
   localStorage.setItem('cardArray', JSON.stringify([]));
-}else{
-    cardArray = JSON.parse(localStorage.getItem('cardArray'));
+} else {
+  cardArray = JSON.parse(localStorage.getItem('cardArray'));
 }
 
-  
-const createToDoView = function() {
+const createToDoView = function () {
   const butId = document.querySelector('.butt');
   butId.setAttribute('id', this.parentElement.id);
 
   const appendage = document.querySelector('.toDos');
 
-
   const doList = document.createElement('div');
   doList.setAttribute('class', 'toDoList');
 
-  let changeId = document.querySelector('#idButt');
-    const switchId = function(elem) {
-      changeId.value = elem.target.id;
-    }
+  const changeId = document.querySelector('#idButt');
+  const switchId = function (elem) {
+    changeId.value = elem.target.id;
+  };
 
   let innerArray = [];
+  console.log('CHECK CHECK')
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
-  for(let i = 0; i < cardArray[this.parentElement.id].length; i++){
+  for (let i = 0; i < cardArray[this.parentElement.id].length; i++) {
     // console.log('todo view:' + this.parentElement.id);
     localStorage.setItem('innerArray', JSON.stringify(cardArray[this.parentElement.id][i]));
-    
-     innerArray = JSON.parse(cardArray[this.parentElement.id][i])
-    
+
+    innerArray = JSON.parse(cardArray[this.parentElement.id][i]);
+
     doList.innerHTML += innerArray;
   }
 
-
-  if(appendage.firstChild == null){
+  if (appendage.firstChild == null) {
     return;
-  }else{
-    removeAllChildNodes(appendage);
   }
+  removeAllChildNodes(appendage);
 
   appendage.appendChild(doList);
-  
-  
-  localStorage.setItem("cardArray[parseInt(elem.target.id)]", JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
-  localStorage.setItem("cardArray", JSON.stringify(cardArray));
+
+  localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
+  localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
   projectView(this.innerText);
-  if(doList.firstChild == null){
-    return;
-  }else{
-    let doListChildren = doList.children;
-    for(let i = 0; i < doListChildren.length; i++){
+  if (doList.firstChild == null) {
+
+  } else {
+    const doListChildren = doList.children;
+    for (let i = 0; i < doListChildren.length; i++) {
       doListChildren[i].addEventListener('click', switchId);
     }
-    
   }
-}
+};
 
 export default createToDoView;

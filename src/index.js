@@ -8,10 +8,10 @@ import editToDo from './editToDo';
 import allToDo from './allToDo';
 
 let projArray = [];
-if(localStorage.getItem('projArray') === null){
+if (localStorage.getItem('projArray') === null) {
   localStorage.setItem('projArray', JSON.stringify([]));
-}else{
-    projArray = JSON.parse(localStorage.getItem('projArray'));
+} else {
+  projArray = JSON.parse(localStorage.getItem('projArray'));
 }
 
 startUp();
@@ -19,21 +19,21 @@ startUp();
 const projectSide = document.querySelector('.projects');
 // const projView = document.querySelector('.toDos');
 
-  const getVal = (elem) => {
+const getVal = (elem) => {
   const val = elem.target.value;
-  document.getElementById("result").value = val;
+  document.getElementById('result').value = val;
+};
+
+const getVal2 = (elem) => {
+  const val = elem.target.value;
+  document.getElementById('result2').value = val;
+};
+
+const removeAllChildNodes = (parent) => {
+  while (parent.firstChild) {
+    parent.removeChild(parent.firstChild);
   }
-
-  const getVal2 = (elem) => {
-    const val = elem.target.value;
-    document.getElementById("result2").value = val;
-    }
-
-  const removeAllChildNodes = (parent) => {
-    while (parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
+};
 
 const rad1 = document.querySelector('#one');
 const rad2 = document.querySelector('#two');
@@ -59,7 +59,7 @@ const makePrj = document.querySelector('#button1');
 makePrj.addEventListener('click', createNewProject);
 
 const toDoButton = document.querySelector('.butt');
-toDoButton.addEventListener('click', function(e){
+toDoButton.addEventListener('click', (e) => {
   createToDo(e);
 });
 
