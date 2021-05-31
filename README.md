@@ -9,7 +9,7 @@
 
 ## Live Demo
 
-[Live Demo Link](https://paul-clue.github.io/restaurant/#)
+[Live Demo Link](https://paul-clue.github.io/todo-list/)
 
 ## Built With
 > Javascript.

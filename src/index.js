@@ -10,7 +10,7 @@ import deletes from './deletes';
 import no from './no';
 
 let projArray = [];
-// localStorage.setItem('projArray', JSON.stringify([]));
+
 if (localStorage.getItem('projArray') === null) {
   localStorage.setItem('projArray', JSON.stringify([]));
 } else {
@@ -20,7 +20,6 @@ if (localStorage.getItem('projArray') === null) {
 startUp();
 
 const projectSide = document.querySelector('.projects');
-// const projView = document.querySelector('.toDos');
 
 const getVal = (elem) => {
   const val = elem.target.value;

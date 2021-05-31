@@ -1,5 +1,4 @@
 import removeAllChildNodes from './removeAllChildNodes';
-import projectView from './projectView';
 import ToDoViewStartup from './ToDoViewStartup';
 
 let cardArray = [];
@@ -62,7 +61,6 @@ const startUp = function () {
   let projj = '';
 
   for (let i = 0; i < projArray.length; i++) {
-    // console.log(projArray.length);
     projj = JSON.parse(projArray[i]);
     projList.innerHTML += projj;
   }
@@ -73,11 +71,7 @@ const startUp = function () {
     projListKids[i].addEventListener('click', ToDoViewStartup);
   }
 
-  // console.log(projListKids);
-  // console.log(projList);
   projectSide.appendChild(projList);
-  // console.log('something');
-  // console.log(projArray[0]);
   const popUp = () =>{
     const modal = document.querySelector('.confirmDelete');
     modal.style.display = 'block';

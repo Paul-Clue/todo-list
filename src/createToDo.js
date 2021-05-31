@@ -1,7 +1,5 @@
 import newToDo from './newTodo';
 import removeAllChildNodes from './removeAllChildNodes';
-import deletes from './deletes';
-
 
 let idArray = [];
 if (localStorage.getItem('idArray') === null) {
@@ -53,15 +51,9 @@ const createToDo = (elem) => {
     idArray.push(todo.id);
     todo.children[0].children[2].firstChild.setAttribute('id', todo.id);
     todo.children[0].children[2].firstChild.addEventListener('click', switchId);
-    // todo.children[0].children[2].firstChild.addEventListener('click', deletes);
 
     todo.children[0].children[2].children[1].setAttribute('id', todo.id);
-    // todo.children[0].children[2].children[1].setAttribute('data-toggle', 'modal');
-    // todo.children[0].children[2].children[1].setAttribute('data-bs-target', '#DeleteModal');
-    // todo.children[0].children[2].children[1].addEventListener('click', modalForDelete);
-    // todo.children[0].children[2].children[1].addEventListener('click', switchId);
-    // console.log(todo.children[0].children[2].children[1]);
-   
+
     localStorage.setItem('idArray', JSON.stringify(idArray));
 
     todo = todo.outerHTML;
@@ -74,7 +66,6 @@ const createToDo = (elem) => {
       cardArray[parseInt(elem.target.id)].push(json);
     }
 
-    // localStorage.setItem("cardArray", JSON.stringify(cardArray[parseInt(elem.target.id)]));
     localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
     const appendage = document.querySelector('.toDos');
@@ -127,7 +118,6 @@ const createToDo = (elem) => {
     } else {
       const doListChildren = doList.children;
       for (let i = 0; i < doListChildren.length; i++) {
-        // const runIt = modalForDelete;
         doListChildren[i].addEventListener('click', switchId);
         doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
       }

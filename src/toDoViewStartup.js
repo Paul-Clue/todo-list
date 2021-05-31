@@ -14,13 +14,6 @@ const ToDoViewStartup = function () {
   const butId = document.querySelector('.butt');
   butId.setAttribute('id', this.id);
 
-  // console.log('BUTTON ID: ' + projectList.id);
-  // console.log('BUTTON ID: ' + projectList);
-  // console.log(cardArray);
-  // console.log(this.id);
-  // console.log(cardArray[this.id].length);
- 
-
   const appendage = document.querySelector('.toDos');
 
   const doList = document.createElement('div');
@@ -42,19 +35,9 @@ const ToDoViewStartup = function () {
     innerArray += JSON.parse(cardArray[this.id][i]);
    }
   }else{
-    // console.log(cardArray[this.id]);
-    // console.log(this.id);
-    // console.log(cardArray.length);
-    // console.log(cardArray);
       innerArray = JSON.parse(cardArray[this.id]);
-      // console.log('OUTER');
-      // console.log(cardArray[this.id].length);
       
     }
-    // console.log(cardArray[this.id]);
-    // console.log('this id: ' + cardArray[this.id]);
-    // console.log(innerArray);
-    // innerArray = JSON.parse(localStorage.getItem(cardArray[this.id][i]));
     
     doList.innerHTML += innerArray;
 

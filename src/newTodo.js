@@ -1,5 +1,3 @@
-import editToDo from './editToDo';
-
 const newToDo = () => {
   const card = document.createElement('div');
   card.setAttribute('class', 'card todoCard');
@@ -34,8 +32,6 @@ const newToDo = () => {
 
   const cardButton2 = document.createElement('button');
   cardButton2.setAttribute('class', 'btn btn-warning');
-  // cardButton.setAttribute('data-bs-toggle', 'modal');
-  // cardButton.setAttribute('data-bs-target', '#DeleteModal');
   cardButton2.innerText = 'Delete ToDo';
 
   card3.appendChild(cardButton);

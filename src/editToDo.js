@@ -47,33 +47,19 @@ const editToDo = (elem) => {
         title[i].style.backgroundColor = 'lightcyan';
       }
 
-      
-      // const checkTitle = document.querySelector('.projectTitle');
-      // console.log(title[i]);
       const title2 = title[i].outerHTML;
       const json = JSON.stringify(title2);
       for(let j = 0; j < cardArray.length; j+=1){
         if(Array.isArray(cardArray[j])){
-          // console.log(title[i]);
-          // console.log(cardArray);
-          // cardArray[j].forEach(function(item, i) { if (item.id == title[i].id) cardArray[i] = json; });
+
           for(let p = 0; p < cardArray[j].length; p +=1){
             convert.innerHTML = JSON.parse(cardArray[j][p]);
-            // console.log(convert.firstChild.id);
-            // console.log(title[i].id);
+
             if(convert.firstChild.id == title[i].id){
-              // convert.innerHTML = JSON.parse(cardArray[j][p]);
-              // let jet  = JSON.parse(cardArray[j][p]);
-              // console.log(convert.firstChild.id);
-              // console.log('title ' + title[i].id);
-              // console.log(cardArray[j][p])
-              console.log('CHECK CHECK');
               cardArray[j][p] = json;
             }
           }
         }else{
-          console.log(cardArray);
-          console.log('RANN');
           convert.innerHTML = JSON.parse(cardArray[j]);
           if(convert.firstChild.id == title[i].id){
             cardArray[j] = json;
@@ -83,31 +69,7 @@ const editToDo = (elem) => {
 
       localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
-      // cardArray = JSON.parse(localStorage.getItem('cardArray'));
-
-      // if (checkTitle.innerHTML == 'Project: &nbsp; All ToDos') {
-      //   let get = (cardArray.splice(title[i].id, 1, json));
-
-      //   localStorage.setItem('cardArray', JSON.stringify(cardArray));
-      //   // cardArray = JSON.parse(localStorage.getItem('cardArray'));
-      // } else {
-      //   if(Array.isArray(cardArray)){
-
-      //   }
-      //   // console.log(parseInt(title[i].id));
-      //   // console.log(Array.isArray(cardArray[parseInt(title[i].id)]));
-      //   // console.log(title[i].id);
-      //   // console.log(cardArray);
-      //   // console.log(parseInt(title[i].id) - 1);
-      //   console.log( buttonValue.value);
-      //   cardArray[projectList.id].splice(buttonValue.value, 1, json);
-      //   localStorage.setItem('cardArray', JSON.stringify(cardArray));
-      // }
     }
-    // console.log('Crash');
-    // localStorage.setItem("cardArray", JSON.stringify(cardArray[parseInt(title[i].id)]));
-
-    // console.log('this is length:' + cardArray.length);
   }
 };
 
