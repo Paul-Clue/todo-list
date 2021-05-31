@@ -1,11 +1,11 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Restaurant Project
+# TO-DO LIST
 
 ## Project Description
-> This is a static webpage built with Javascript. This page was built using webpack. All of the links were built using modules which were then imported to the index.js file. The index.js file serves as the entry point for webpack. Webpack uses this file to build out the site almost completely using Javascript.
+> This is an app for making a to-do list. Users can create project topics and add to-dos that need to be done. Create to-dos with titles, due dates, and a brief description of the task at hand. Users can  view all to-dos at once or by project.The app also allows the user to pick a priority for the to-dos. The priority level is based on the color of the to-do: red for high priority, yellow second light-blue third, and a light-cyan last. To-dos can also be edited and deleted.
 
-![screenshot](./assets/img/Screenshot(16).png)
+![screenshot](./img/Screenshot(17).png)
 
 ## Live Demo
 
@@ -20,18 +20,18 @@
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple steps.
 
 - Go to the terminal and run the following command:
 ```
-git clone https://github.com/Paul-Clue/restaurant/tree/feature/rest
+git clone https://github.com/Paul-Clue/todo-list/tree/feature/list
 ```
 - If you don't have git, you can download this project and unzip it.
 - Change the directory to the folder where you want the application saved.
 - Launch the application from index.html.
 
 ## Usage
-- Click the on any of the navigation links to see the information on the page change dynamically.
+- The interface is very intuitive. Create to-dos and specific projects for to-dos by clicking on the appropriate buttons.
 
 ## Author
 
