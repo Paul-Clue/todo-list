@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,500&display=swap');
 
 * {
   margin: 0;
@@ -6,25 +6,32 @@
   box-sizing: border-box;
 }
 
+html{
+  height: 100%;
+}
+
+body{
+  height: 100%;
+}
+
 /* header */
 header {
   background-color: rgb(37, 37, 37);
   color: whitesmoke;
   text-align: center;
-  font-family: 'Pattaya', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 50px;
 }
 
 /* main */
-
 main {
   display: flex;
+  background: rgb(165, 165, 165);
 }
 
 /* left */
-
 #left-section {
-  height: 100vh;
+  height: 100%;
   width: 30%;
   background: rgb(165, 165, 165);
   justify-self: center;
@@ -34,35 +41,23 @@ main {
   border-bottom: 2px solid black;
   border-top: 2px solid black;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   max-width: 50%;
   justify-content: center;
-  margin: 10px auto;
-  padding: 25px 0;
+  margin: 2px auto;
+  padding: 5px 0;
 }
 
 #project-todo-form > input {
-  padding: 10px;
+  padding: 5px;
   margin: 5px 0;
-  font-size: large;
+  font-size: medium;
   font-weight: 600;
 }
 
-#Add-new-project {
-  padding: 1rem 2rem;
-  margin:10% auto;
-  margin-left: 35%;
-  border: none;
-  background: #000;
-  color: whitesmoke;
-  font-size: 25px;
-
-}
-
 /* right */
-
 #right-section {
-  height: 100vh;
+  height: 100%;
   width: 70%;
   float: right;
   background: rgb(192, 190, 190);
@@ -70,31 +65,53 @@ main {
 }
 
 #right-section > h3 {
-  font-size: 50px;
+  font-size: 30px;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   margin-bottom: 2%;
 }
 
-#todo-form {
-  border-bottom: 2px solid black;
+.todo-form {
   border-top: 2px solid black;
-  padding: 25px;
-  display: inline-block;
-  width: 40%;
-  margin: 10% auto;
+  padding: 10px;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 2% auto;
+  margin-bottom: 1px;
 }
 
-#todo-form > input {
+.todo-form > input {
   padding: 5px;
   width: 60%;
   margin: 5px 0;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.todo-form > label {
   font-size: large;
   font-weight: 600;
 }
 
-#todo-form > label {
-  font-size: large;
-  font-weight: 600;
+.todo-form > .butt{
+  width: 10%;
+}
+
+.todo-form > #date {
+  width: 20%;
+}
+
+.priority {
+  border-bottom: 2px solid black;
+  float: left;
+  width: 100%;
+}
+
+.labe{
+  float: left;
+  margin-left: 2%;
+  margin-right: 0;
 }
 
 /* card */
@@ -142,9 +159,38 @@ main {
   margin-top: 5%;
   margin-bottom: 10px;
 }
+.confirmDelete{
+  position: absolute;
+  top: 27%;
+  left: 40%;
+  height: 50%;
+  width: 50%;
+  z-index: 10;
+  border: 4px solid black;
+  background-color: rgba(230, 200, 330, .9);
+  display: none;
+}
+
+.deleteButton{
+  position: relative;
+  left: 39%;
+  top: 40%;
+}
+
+.deleteButton2{
+  position: relative;
+  left: 40%;
+  top: 40%;
+}
+
+.confirmText{
+  font-weight: bold;
+  position: relative;
+  left: 38%;
+  top: 35%;
+}
 
 /* footer */
-
 footer {
 
 }

@@ -1,57 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="../asset/css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+ 
 </head>
 <body>
-  <div id="content ">
-    <header>
-      <h1>Todo List</h1>
-    </header>
-    <main>
-      <section id="left-section">
-        <button id="Add-new-project">Add Project</button>
-        <form action="#" method="post" id="project-todo-form">
-          <input type="text" name="project-name" id="project-name" placeholder="Project...">
-          <input type="button" value="Create Project">
+
+  <div class="confirmDelete">
+    <h1 class="confirmText">Delete?</h1>
+    <button class="btn btn-info deleteButton">Yes</button>
+    <button class="btn btn-info deleteButton2">No</button>
+  </div>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit ToDo</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="idButt">
+        <form action="#" method="post" class="todo-form">
+          <input type="text" name="title2" id="title2" placeholder="Title" ><br>
+          <input type="text" name="description2" id="description2" placeholder="what Needs To Be Done"><br>
+          <input type="date" name="date2" id="date2" placeholder="Due Date"><br>
+          <input type="button" class="editButt" value="Edit">
         </form>
-      </section>
-      <section id="right-section">
-        <h3>project Title</h3>
-        <div id="todo-card">
-          <div id="card-left-side">
-            <h4>Title</h4>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum suscipit voluptatem a, hic quaerat facilis laudantium cupiditate ab aliquid tempore?</p>
-          </div>
-          <div id="card-right-side">
-            <h6>14-5-2021</h6>
-            <input type="button" value="Delete" id='Delete Button'>
+        <span class="priority">
+          <label for="priority" class="labe">Priority</label>
+          <input type="radio" name="priority" class="rad labe" id="one1" value="1" >
+          <label for="1" class="labe" style="margin-left: 0;">1</label>
+
+          <input type="radio" name="priority" class="rad labe" id="two2" value="2">
+          <label for="2" class="labe" style="margin-left: 0;">2</label>
+
+          <input type="radio" name="priority" class="rad labe" id="three3" value="3">
+          <label for="3" class="labe" style="margin-left: 0;">3</label>
+
+          <input type="radio" name="priority" class="rad labe" id="four4" value="4">
+          <label for="4" class="labe" style="margin-left: 0;">4</label>
+          <input type="hidden" id="result2">
+        </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div id="content " style="height: 100%;">
+    <header>
+      <h1>ToDo List</h1>
+    </header>
+    <main style="height: 100%;">
+      <!-- Project Side -->
+      <section id="left-section" style="height: 100%;">
+        <form action="#" method="post" id="project-todo-form">
+          <input type="text" name="projectName" id="projectName" placeholder="Project...">
+          <input type="button" value="Create Project" id="button1">
+        </form>
+        <div class="card card2 all">
+          <div class="card-header text-center fw-bold ">
+            Project: &nbsp; <span class="text-primary">All ToDos</span>
           </div>
         </div>
-        <form action="#" method="post" id="todo-form">
-          <input type="text" name="title" id="title" placeholder="Title"><br>
-          <input type="text" name="description" id="description" placeholder="Description"><br>
-          <input type="datetime" name="duedate" id="duedate" placeholder="Due Date"><br>
-          <label for="priority">Priority</label>
-          <span class="priority">
-            <input type="radio" name="priority" id="1">
-            <input type="radio" name="priority" id="2">
-            <input type="radio" name="priority" id="3">
-            <input type="radio" name="priority" id="4">
-            <input type="radio" name="priority" id="5">
-          </span><br>
-          <input type="button" value="Add Todo">
-        </form>
+        <div class="projects"></div>
       </section>
+
+      <!-- To-Do Side -->
+      <section id="right-section">
+          <h3 class="projectTitle">Project: &nbsp; All ToDos</h3>
+        <form action="#" method="post" class="todo-form todo-form-form">
+          <input type="text" name="title" id="title" placeholder="Title" ><br>
+          <input type="text" name="description" id="description" placeholder="what Needs To Be Done"><br>
+          <input type="date" name="date" id="date" placeholder="Due Date"><br>
+          <input type="button" class="butt" value="Add ToDo">
+        </form>
+        <span class="priority">
+          <label for="priority" class="labe">Priority</label>
+          <input type="radio" name="priority" class="rad labe" id="one" value="1" >
+          <label for="1" class="labe" style="margin-left: 0;">1</label>
+
+          <input type="radio" name="priority" class="rad labe" id="two" value="2">
+          <label for="2" class="labe" style="margin-left: 0;">2</label>
+
+          <input type="radio" name="priority" class="rad labe" id="three" value="3">
+          <label for="3" class="labe" style="margin-left: 0;">3</label>
+
+          <input type="radio" name="priority" class="rad labe" id="four" value="4">
+          <label for="4" class="labe" style="margin-left: 0;">4</label>
+          <input type="hidden" id="result">
+        </span><br>
+        
+        <section class="toDos">
+          <div class="toDoList"></div>
+        </section>
+      </section>
+      
     </main>
     <footer>
 
     </footer>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
 </body>
-<script src="main.js"></script>
+
 </html>
