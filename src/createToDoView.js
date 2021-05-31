@@ -27,7 +27,7 @@ const createToDoView = function () {
   let innerArray = [];
 
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
-  for (let i = 0; i < cardArray[this.parentElement.id].length; i++) {
+  for (let i = 0; i < cardArray[this.parentElement.id].length; i += 1) {
     innerArray = JSON.parse(cardArray[this.parentElement.id][i]);
 
     doList.innerHTML += innerArray;
@@ -45,15 +45,15 @@ const createToDoView = function () {
     modal.style.display = 'block';
   };
 
-  localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
+  localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.parentElement.id, 10)]));
   localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
   projectView(this.innerText);
   if (doList.firstChild == null) {
-
+    doList.firstChild = null;
   } else {
     const doListChildren = doList.children;
-    for (let i = 0; i < doListChildren.length; i++) {
+    for (let i = 0; i < doListChildren.length; i += 1) {
       doListChildren[i].addEventListener('click', switchId);
       doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
     }

@@ -1,5 +1,5 @@
 import removeAllChildNodes from './removeAllChildNodes';
-import ToDoViewStartup from './ToDoViewStartup';
+import ToDoViewStartup from './toDoViewStartup';
 
 let cardArray = [];
 if (localStorage.getItem('cardArray') === null) {
@@ -27,8 +27,8 @@ const startUp = function () {
   let innerArray = [];
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
 
-  for (let j = 0; j < cardArray.length; j++) {
-    for (let i = 0; i < cardArray[j].length; i++) {
+  for (let j = 0; j < cardArray.length; j += 1) {
+    for (let i = 0; i < cardArray[j].length; i += 1) {
       localStorage.setItem('innerArray', JSON.stringify(cardArray[j][i]));
 
       try {
@@ -60,14 +60,14 @@ const startUp = function () {
 
   let projj = '';
 
-  for (let i = 0; i < projArray.length; i++) {
+  for (let i = 0; i < projArray.length; i += 1) {
     projj = JSON.parse(projArray[i]);
     projList.innerHTML += projj;
   }
 
   const projListKids = projList.children;
 
-  for (let i = 0; i < projListKids.length; i++) {
+  for (let i = 0; i < projListKids.length; i += 1) {
     projListKids[i].addEventListener('click', ToDoViewStartup);
   }
 
@@ -78,10 +78,10 @@ const startUp = function () {
   };
 
   if (doList.firstChild == null) {
-
+    doList.firstChild = null;
   } else {
     const doListChildren = doList.children;
-    for (let i = 0; i < doListChildren.length; i++) {
+    for (let i = 0; i < doListChildren.length; i += 1) {
       doListChildren[i].addEventListener('click', switchId);
       doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
     }

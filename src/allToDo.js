@@ -16,8 +16,8 @@ const allToDo = function () {
   let innerArray = [];
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
 
-  for (let j = 0; j < cardArray.length; j++) {
-    for (let i = 0; i < cardArray[j].length; i++) {
+  for (let j = 0; j < cardArray.length; j += 1) {
+    for (let i = 0; i < cardArray[j].length; i += 1) {
       localStorage.setItem('innerArray', JSON.stringify(cardArray[j][i]));
 
       try {
@@ -37,7 +37,7 @@ const allToDo = function () {
   removeAllChildNodes(appendage);
 
   appendage.appendChild(doList);
-  localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
+  localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.parentElement.id, 10)]));
   localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
   projectView(this.innerText);
@@ -55,10 +55,10 @@ const allToDo = function () {
   };
 
   if (doList.firstChild == null) {
-
+    doList.firstChild = null;
   } else {
     const doListChildren = doList.children;
-    for (let i = 0; i < doListChildren.length; i++) {
+    for (let i = 0; i < doListChildren.length; i += 1) {
       doListChildren[i].addEventListener('click', switchId);
       doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
     }

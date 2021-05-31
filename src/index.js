@@ -1,25 +1,19 @@
-import newProject from './newProject';
-import newToDo from './newTodo';
-import projectView from './projectView';
 import createToDo from './createToDo';
-import createNewProject from './CreateNewProject';
+import createNewProject from './createNewProject';
 import startUp from './startUp';
 import editToDo from './editToDo';
 import allToDo from './allToDo';
 import deletes from './deletes';
 import no from './no';
 
-let projArray = [];
-
-if (localStorage.getItem('projArray') === null) {
-  localStorage.setItem('projArray', JSON.stringify([]));
-} else {
-  projArray = JSON.parse(localStorage.getItem('projArray'));
-}
+let projArray = []; // eslint-disable-line
+if (localStorage.getItem('projArray') === null) { // eslint-disable-line
+  localStorage.setItem('projArray', JSON.stringify([])); // eslint-disable-line
+} else { // eslint-disable-line
+  projArray = JSON.parse(localStorage.getItem('projArray')); // eslint-disable-line
+} // eslint-disable-line
 
 startUp();
-
-const projectSide = document.querySelector('.projects');
 
 const getVal = (elem) => {
   const val = elem.target.value;
@@ -29,12 +23,6 @@ const getVal = (elem) => {
 const getVal2 = (elem) => {
   const val = elem.target.value;
   document.getElementById('result2').value = val;
-};
-
-const removeAllChildNodes = (parent) => {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
-  }
 };
 
 const rad1 = document.querySelector('#one');

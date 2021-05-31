@@ -7,9 +7,8 @@ if (localStorage.getItem('cardArray') === null) {
 } else {
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
 }
-const projectList = document.querySelector('.butt');
 
-const ToDoViewStartup = function () {
+const ToDoViewStartup = () => {
   const butId = document.querySelector('.butt');
   butId.setAttribute('id', this.id);
 
@@ -20,7 +19,7 @@ const ToDoViewStartup = function () {
 
   const changeId = document.querySelector('#idButt');
   const changeId2 = document.querySelector('.deleteButton');
-  const switchId = function (elem) {
+  const switchId = (elem) => {
     changeId.value = elem.target.id;
     changeId2.setAttribute('id', elem.target.id);
   };
@@ -29,7 +28,7 @@ const ToDoViewStartup = function () {
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
 
   if (Array.isArray(cardArray[this.id])) {
-    for (let i = 0; i < cardArray[this.id].length; i++) {
+    for (let i = 0; i < cardArray[this.id].length; i += 1) {
       innerArray += JSON.parse(cardArray[this.id][i]);
     }
   } else {
@@ -45,7 +44,7 @@ const ToDoViewStartup = function () {
 
   appendage.appendChild(doList);
 
-  localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.id)]));
+  localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.id, 10)]));
   localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
   const popUp = () => {
@@ -55,7 +54,7 @@ const ToDoViewStartup = function () {
 
   projectView(this.innerText);
   if (doList.firstChild == null) {
-
+    doList.firstChild = null;
   } else {
     const doListChildren = doList.children;
     for (let i = 0; i < doListChildren.length; i += 1) {

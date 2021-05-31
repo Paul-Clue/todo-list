@@ -10,33 +10,31 @@ if (localStorage.getItem('idArray') === null) {
 
 let cardArray = JSON.parse(localStorage.getItem('cardArray'));
 
-const projectSide = document.querySelector('.projects');
-
 const createToDo = (elem) => {
   const checkTitle = document.querySelector('.projectTitle');
   const title = document.querySelector('#title');
-  if (title.value == '') {
+  if (title.value === '') {
     alert('Please Enter a ToDo Title');
   } else {
     let todo = newToDo();
     const priority = document.querySelector('#result');
-    if (priority.value == '') {
+    if (priority.value === '') {
       alert('Please Select a Priority ');
       return;
-    } if (priority.value == 1) {
+    } if (priority.value === 1) {
       todo.style.backgroundColor = 'red';
-    } else if (priority.value == 2) {
+    } else if (priority.value === 2) {
       todo.style.backgroundColor = 'yellow';
-    } else if (priority.value == 3) {
+    } else if (priority.value === 3) {
       todo.style.backgroundColor = 'lightblue';
     } else {
       todo.style.backgroundColor = 'lightcyan';
     }
 
     todo.setAttribute('id', 0);
-    for (let i = 0; i < idArray.length; i++) {
-      if (idArray[i] == todo.id) {
-        const num = parseInt(idArray[i]);
+    for (let i = 0; i < idArray.length; i += 1) {
+      if (idArray[i] === todo.id) {
+        const num = parseInt(idArray[i], 10);
         todo.setAttribute('id', (num + 1));
       }
     }
@@ -59,10 +57,10 @@ const createToDo = (elem) => {
     const json = JSON.stringify(todo);
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
 
-    if (checkTitle.innerHTML == 'Project: &nbsp; All ToDos') {
+    if (checkTitle.innerHTML === 'Project: &nbsp; All ToDos') {
       cardArray.push(json);
     } else {
-      cardArray[parseInt(elem.target.id)].push(json);
+      cardArray[parseInt(elem.target.id, 10)].push(json);
     }
 
     localStorage.setItem('cardArray', JSON.stringify(cardArray));
@@ -73,9 +71,9 @@ const createToDo = (elem) => {
 
     let innerArray = [];
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
-    if (checkTitle.innerHTML == 'Project: &nbsp; All ToDos') {
-      for (let j = 0; j < cardArray.length; j++) {
-        for (let i = 0; i < cardArray[j].length; i++) {
+    if (checkTitle.innerHTML === 'Project: &nbsp; All ToDos') {
+      for (let j = 0; j < cardArray.length; j += 1) {
+        for (let i = 0; i < cardArray[j].length; i += 1) {
           localStorage.setItem('innerArray', JSON.stringify(cardArray[j][i]));
 
           try {
@@ -88,8 +86,8 @@ const createToDo = (elem) => {
         }
       }
     } else {
-      for (let i = 0; i < cardArray[parseInt(elem.target.id)].length; i++) {
-        doList.innerHTML += JSON.parse(cardArray[parseInt(elem.target.id)][i]);
+      for (let i = 0; i < cardArray[parseInt(elem.target.id, 10)].length; i += 1) {
+        doList.innerHTML += JSON.parse(cardArray[parseInt(elem.target.id, 10)][i]);
       }
     }
 
@@ -100,7 +98,7 @@ const createToDo = (elem) => {
       appendage.appendChild(doList);
     }
 
-    localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(elem.target.id)]));
+    localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(elem.target.id, 10)]));
     localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
     const popUp = () => {
@@ -110,11 +108,10 @@ const createToDo = (elem) => {
 
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
     if (doList.firstChild == null) {
-      let t = 1;
-      t += 1;
+      doList.firstChild = null;
     } else {
       const doListChildren = doList.children;
-      for (let i = 0; i < doListChildren.length; i++) {
+      for (let i = 0; i < doListChildren.length; i += 1) {
         doListChildren[i].addEventListener('click', switchId);
         doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
       }

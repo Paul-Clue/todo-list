@@ -19,7 +19,7 @@ if (localStorage.getItem('projArray') === null) {
 
 const createNewProject = () => {
   const projectName = document.querySelector('#projectName');
-  if (projectName.value == '') {
+  if (projectName.value === '') {
     alert('Please Enter a Project Title');
     return;
   }
