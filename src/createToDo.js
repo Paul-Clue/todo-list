@@ -130,8 +130,6 @@ const createToDo = (elem) => {
         // const runIt = modalForDelete;
         doListChildren[i].addEventListener('click', switchId);
         doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
-
-        
       }
       
     }

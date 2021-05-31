@@ -74,7 +74,8 @@ const editToDo = (elem) => {
         }else{
           console.log(cardArray);
           console.log('RANN');
-          if(cardArray[j].id == title[i].id){
+          convert.innerHTML = JSON.parse(cardArray[j]);
+          if(convert.firstChild.id == title[i].id){
             cardArray[j] = json;
           }
         }

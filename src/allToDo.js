@@ -43,9 +43,16 @@ const allToDo = function () {
   projectView(this.innerText);
 
   const changeId = document.querySelector('#idButt');
+  const changeId2 = document.querySelector('.deleteButton');
   const switchId = function (elem) {
     changeId.value = elem.target.id;
+    changeId2.setAttribute('id', elem.target.id); 
   };
+
+  const popUp = () =>{
+    const modal = document.querySelector('.confirmDelete');
+    modal.style.display = 'block';
+  }
 
   if (doList.firstChild == null) {
 
@@ -53,6 +60,7 @@ const allToDo = function () {
     const doListChildren = doList.children;
     for (let i = 0; i < doListChildren.length; i++) {
       doListChildren[i].addEventListener('click', switchId);
+      doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
     }
   }
 };
