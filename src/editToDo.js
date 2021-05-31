@@ -5,14 +5,13 @@ const editToDo = (elem) => {
   const descriptionValue = document.querySelector('#description2');
   const priorityValue = document.querySelector('#result2');
 
-  let cardArray = JSON.parse(localStorage.getItem('cardArray'));
+  const cardArray = JSON.parse(localStorage.getItem('cardArray'));
 
   const title = document.getElementsByClassName('todoCard');
   const convert = document.createElement('div');
   const projectList = document.querySelector('.butt');
   const buttonValue = document.querySelector('#idButt');
 
-  
   for (let i = 0; i < title.length; i++) {
     const go = title[i].children;
     const go2 = go[0].children;
@@ -49,26 +48,24 @@ const editToDo = (elem) => {
 
       const title2 = title[i].outerHTML;
       const json = JSON.stringify(title2);
-      for(let j = 0; j < cardArray.length; j+=1){
-        if(Array.isArray(cardArray[j])){
-
-          for(let p = 0; p < cardArray[j].length; p +=1){
+      for (let j = 0; j < cardArray.length; j += 1) {
+        if (Array.isArray(cardArray[j])) {
+          for (let p = 0; p < cardArray[j].length; p += 1) {
             convert.innerHTML = JSON.parse(cardArray[j][p]);
 
-            if(convert.firstChild.id == title[i].id){
+            if (convert.firstChild.id == title[i].id) {
               cardArray[j][p] = json;
             }
           }
-        }else{
+        } else {
           convert.innerHTML = JSON.parse(cardArray[j]);
-          if(convert.firstChild.id == title[i].id){
+          if (convert.firstChild.id == title[i].id) {
             cardArray[j] = json;
           }
         }
       }
 
       localStorage.setItem('cardArray', JSON.stringify(cardArray));
-
     }
   }
 };

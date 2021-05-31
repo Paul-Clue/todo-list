@@ -5,7 +5,7 @@
 ## Project Description
 > This is an app for making a to-do list. Users can create project topics and add to-dos that need to be done. Create to-dos with titles, due dates, and a brief description of the task at hand. Users can  view all to-dos at once or by project.The app also allows the user to pick a priority for the to-dos. The priority level is based on the color of the to-do: red for high priority, yellow second light-blue third, and a light-cyan last. To-dos can also be edited and deleted.
 
-![screenshot](./img/Screenshot(17).png)
+![screenshot]((./assets/img/Screenshot(17).png)
 
 ## Live Demo
 

@@ -50,11 +50,11 @@ const startUp = function () {
   appendage.appendChild(doList);
 
   const changeId = document.querySelector('#idButt');
-    const changeId2 = document.querySelector('.deleteButton');
-    const switchId = function (elem) {
-      changeId.value = elem.target.id;
-      changeId2.setAttribute('id', elem.target.id);
-    };
+  const changeId2 = document.querySelector('.deleteButton');
+  const switchId = function (elem) {
+    changeId.value = elem.target.id;
+    changeId2.setAttribute('id', elem.target.id);
+  };
 
   projArray = JSON.parse(localStorage.getItem('projArray'));
 
@@ -72,11 +72,10 @@ const startUp = function () {
   }
 
   projectSide.appendChild(projList);
-  const popUp = () =>{
+  const popUp = () => {
     const modal = document.querySelector('.confirmDelete');
     modal.style.display = 'block';
-  }
-
+  };
 
   if (doList.firstChild == null) {
 

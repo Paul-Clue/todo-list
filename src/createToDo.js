@@ -44,9 +44,8 @@ const createToDo = (elem) => {
     const changeId2 = document.querySelector('.deleteButton');
     const switchId = function (elem) {
       changeId.value = elem.target.id;
-      changeId2.setAttribute('id', elem.target.id); 
+      changeId2.setAttribute('id', elem.target.id);
     };
-
 
     idArray.push(todo.id);
     todo.children[0].children[2].firstChild.setAttribute('id', todo.id);
@@ -104,26 +103,22 @@ const createToDo = (elem) => {
     localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(elem.target.id)]));
     localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
-    const popUp = () =>{
+    const popUp = () => {
       const modal = document.querySelector('.confirmDelete');
       modal.style.display = 'block';
-    }
-    
-  
+    };
 
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
     if (doList.firstChild == null) {
       let t = 1;
-      t = t+1;
+      t += 1;
     } else {
       const doListChildren = doList.children;
       for (let i = 0; i < doListChildren.length; i++) {
         doListChildren[i].addEventListener('click', switchId);
         doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
       }
-      
     }
-    
   }
 };
 

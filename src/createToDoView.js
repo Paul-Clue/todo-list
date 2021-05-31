@@ -21,14 +21,13 @@ const createToDoView = function () {
   const changeId2 = document.querySelector('.deleteButton');
   const switchId = function (elem) {
     changeId.value = elem.target.id;
-    changeId2.setAttribute('id', elem.target.id); 
+    changeId2.setAttribute('id', elem.target.id);
   };
 
   let innerArray = [];
 
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
   for (let i = 0; i < cardArray[this.parentElement.id].length; i++) {
-
     innerArray = JSON.parse(cardArray[this.parentElement.id][i]);
 
     doList.innerHTML += innerArray;
@@ -41,10 +40,10 @@ const createToDoView = function () {
 
   appendage.appendChild(doList);
 
-  const popUp = () =>{
+  const popUp = () => {
     const modal = document.querySelector('.confirmDelete');
     modal.style.display = 'block';
-  }
+  };
 
   localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.parentElement.id)]));
   localStorage.setItem('cardArray', JSON.stringify(cardArray));
@@ -57,7 +56,6 @@ const createToDoView = function () {
     for (let i = 0; i < doListChildren.length; i++) {
       doListChildren[i].addEventListener('click', switchId);
       doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
-
     }
   }
 };

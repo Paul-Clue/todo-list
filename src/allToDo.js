@@ -46,13 +46,13 @@ const allToDo = function () {
   const changeId2 = document.querySelector('.deleteButton');
   const switchId = function (elem) {
     changeId.value = elem.target.id;
-    changeId2.setAttribute('id', elem.target.id); 
+    changeId2.setAttribute('id', elem.target.id);
   };
 
-  const popUp = () =>{
+  const popUp = () => {
     const modal = document.querySelector('.confirmDelete');
     modal.style.display = 'block';
-  }
+  };
 
   if (doList.firstChild == null) {
 
