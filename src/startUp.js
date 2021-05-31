@@ -51,9 +51,11 @@ const startUp = function () {
   appendage.appendChild(doList);
 
   const changeId = document.querySelector('#idButt');
-  const switchId = function (elem) {
-    changeId.value = elem.target.id;
-  };
+    const changeId2 = document.querySelector('.deleteButton');
+    const switchId = function (elem) {
+      changeId.value = elem.target.id;
+      changeId2.setAttribute('id', elem.target.id);
+    };
 
   projArray = JSON.parse(localStorage.getItem('projArray'));
 
@@ -76,12 +78,19 @@ const startUp = function () {
   projectSide.appendChild(projList);
   // console.log('something');
   // console.log(projArray[0]);
+  const popUp = () =>{
+    const modal = document.querySelector('.confirmDelete');
+    modal.style.display = 'block';
+  }
+
+
   if (doList.firstChild == null) {
 
   } else {
     const doListChildren = doList.children;
     for (let i = 0; i < doListChildren.length; i++) {
       doListChildren[i].addEventListener('click', switchId);
+      doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
     }
   }
 };

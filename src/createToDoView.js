@@ -27,7 +27,8 @@ const createToDoView = function () {
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
   for (let i = 0; i < cardArray[this.parentElement.id].length; i++) {
     // console.log('todo view:' + this.parentElement.id);
-    localStorage.setItem('innerArray', JSON.stringify(cardArray[this.parentElement.id][i]));
+    // localStorage.setItem('innerArray', JSON.stringify(cardArray[this.parentElement.id][i]));
+
 
     innerArray = JSON.parse(cardArray[this.parentElement.id][i]);
 

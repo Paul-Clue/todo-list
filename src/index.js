@@ -6,8 +6,11 @@ import createNewProject from './CreateNewProject';
 import startUp from './startUp';
 import editToDo from './editToDo';
 import allToDo from './allToDo';
+import deletes from './deletes';
+import no from './no';
 
 let projArray = [];
+// localStorage.setItem('projArray', JSON.stringify([]));
 if (localStorage.getItem('projArray') === null) {
   localStorage.setItem('projArray', JSON.stringify([]));
 } else {
@@ -68,3 +71,9 @@ allToDos.addEventListener('click', allToDo);
 
 const change = document.querySelector('.editButt');
 change.addEventListener('click', editToDo);
+
+const deleteToDo = document.querySelector('.deleteButton');
+deleteToDo.addEventListener('click', deletes);
+
+const deleteToDo2 = document.querySelector('.deleteButton2');
+deleteToDo2.addEventListener('click', no);

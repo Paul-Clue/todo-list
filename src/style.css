@@ -163,6 +163,42 @@ main {
   margin-bottom: 10px;
 }
 
+
+
+
+.confirmDelete{
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  height: 50%;
+  width: 50%;
+  z-index: 10;
+  border: 4px solid black;
+  background-color: rgba(230, 200, 330, .9);
+  display: none;
+}
+
+.deleteButton{
+  position: relative;
+  left: 75%;
+  top: 40%;
+}
+
+.deleteButton2{
+  position: relative;
+  left: 80%;
+  top: 40%;
+}
+
+.confirmText{
+  font-weight: bold;
+  position: relative;
+  left: 38%;
+  top: 35%;
+}
+
+
+
 /* footer */
 
 footer {

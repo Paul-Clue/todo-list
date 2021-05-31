@@ -1,5 +1,5 @@
-import removeAllChildNodes from './removeAllChildNodes';
-import projectView from './projectView';
+import removeAllChildNodes from '/.removeAllChildNodes';
+import projectView from '/.projectView';
 
 let cardArray = [];
 if (localStorage.getItem('cardArray') === null) {

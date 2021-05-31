@@ -1,5 +1,8 @@
 import newToDo from './newTodo';
-import removeAllChildNodes from './removeAllChildNodes';
+import removeAllChildNodes from '/removeAllChildNodes.js';
+import deletes from './deletes';
+import test from './test';
+import modalForDelete from './modalForDelete'
 
 let idArray = [];
 if (localStorage.getItem('idArray') === null) {
@@ -41,14 +44,25 @@ const createToDo = (elem) => {
       }
     }
     const changeId = document.querySelector('#idButt');
+    const changeId2 = document.querySelector('.deleteButton');
     const switchId = function (elem) {
       changeId.value = elem.target.id;
+      changeId2.setAttribute('id', elem.target.id); 
     };
+
 
     idArray.push(todo.id);
     todo.children[0].children[2].firstChild.setAttribute('id', todo.id);
     todo.children[0].children[2].firstChild.addEventListener('click', switchId);
+    // todo.children[0].children[2].firstChild.addEventListener('click', deletes);
 
+    todo.children[0].children[2].children[1].setAttribute('id', todo.id);
+    // todo.children[0].children[2].children[1].setAttribute('data-toggle', 'modal');
+    // todo.children[0].children[2].children[1].setAttribute('data-bs-target', '#DeleteModal');
+    // todo.children[0].children[2].children[1].addEventListener('click', modalForDelete);
+    // todo.children[0].children[2].children[1].addEventListener('click', switchId);
+    // console.log(todo.children[0].children[2].children[1]);
+   
     localStorage.setItem('idArray', JSON.stringify(idArray));
 
     todo = todo.outerHTML;
@@ -100,15 +114,29 @@ const createToDo = (elem) => {
     localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(elem.target.id)]));
     localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
+    const popUp = () =>{
+      const modal = document.querySelector('.confirmDelete');
+      modal.style.display = 'block';
+    }
+    
+  
+
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
     if (doList.firstChild == null) {
-
+      let t = 1;
+      t = t+1;
     } else {
       const doListChildren = doList.children;
       for (let i = 0; i < doListChildren.length; i++) {
+        // const runIt = modalForDelete;
         doListChildren[i].addEventListener('click', switchId);
+        doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
+        console.log(doListChildren[i].children[0].children[2].children[1]);
+        
       }
+      
     }
+    
   }
 };
 
