@@ -1,8 +1,7 @@
 import newToDo from './newTodo';
-import removeAllChildNodes from '/removeAllChildNodes.js';
+import removeAllChildNodes from './removeAllChildNodes';
 import deletes from './deletes';
-import test from './test';
-import modalForDelete from './modalForDelete'
+
 
 let idArray = [];
 if (localStorage.getItem('idArray') === null) {
@@ -131,7 +130,7 @@ const createToDo = (elem) => {
         // const runIt = modalForDelete;
         doListChildren[i].addEventListener('click', switchId);
         doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
-        console.log(doListChildren[i].children[0].children[2].children[1]);
+
         
       }
       

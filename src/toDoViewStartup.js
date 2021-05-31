@@ -1,5 +1,5 @@
-import removeAllChildNodes from '/.removeAllChildNodes';
-import projectView from '/.projectView';
+import removeAllChildNodes from './removeAllChildNodes';
+import projectView from './projectView';
 
 let cardArray = [];
 if (localStorage.getItem('cardArray') === null) {
@@ -27,8 +27,10 @@ const ToDoViewStartup = function () {
   doList.setAttribute('class', 'toDoList');
 
   const changeId = document.querySelector('#idButt');
+  const changeId2 = document.querySelector('.deleteButton');
   const switchId = function (elem) {
     changeId.value = elem.target.id;
+    changeId2.setAttribute('id', elem.target.id); 
   };
 
   let innerArray = [];
@@ -36,6 +38,7 @@ const ToDoViewStartup = function () {
 
   if(Array.isArray(cardArray[this.id])){
    for (let i = 0; i < cardArray[this.id].length; i++) {
+
     innerArray += JSON.parse(cardArray[this.id][i]);
    }
   }else{
@@ -65,6 +68,11 @@ const ToDoViewStartup = function () {
   localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.id)]));
   localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
+  const popUp = () =>{
+    const modal = document.querySelector('.confirmDelete');
+    modal.style.display = 'block';
+  }
+
   projectView(this.innerText);
   if (doList.firstChild == null) {
 
@@ -72,6 +80,7 @@ const ToDoViewStartup = function () {
     const doListChildren = doList.children;
     for (let i = 0; i < doListChildren.length; i += 1) {
       doListChildren[i].addEventListener('click', switchId);
+      doListChildren[i].children[0].children[2].children[1].addEventListener('click', popUp);
     }
   }
 };
