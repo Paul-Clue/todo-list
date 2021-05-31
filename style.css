@@ -24,14 +24,12 @@ header {
 }
 
 /* main */
-
 main {
   display: flex;
   background: rgb(165, 165, 165);
 }
 
 /* left */
-
 #left-section {
   height: 100%;
   width: 30%;
@@ -58,7 +56,6 @@ main {
 }
 
 /* right */
-
 #right-section {
   height: 100%;
   width: 70%;
@@ -162,13 +159,9 @@ main {
   margin-top: 5%;
   margin-bottom: 10px;
 }
-
-
-
-
 .confirmDelete{
   position: absolute;
-  top: 50%;
+  top: 27%;
   left: 40%;
   height: 50%;
   width: 50%;
@@ -180,13 +173,13 @@ main {
 
 .deleteButton{
   position: relative;
-  left: 75%;
+  left: 39%;
   top: 40%;
 }
 
 .deleteButton2{
   position: relative;
-  left: 80%;
+  left: 40%;
   top: 40%;
 }
 
@@ -197,10 +190,7 @@ main {
   top: 35%;
 }
 
-
-
 /* footer */
-
 footer {
 
 }
