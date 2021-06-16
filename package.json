@@ -3,15 +3,32 @@
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
+  "env": {
+    "test": {
+      "plugins": [
+        "@babel/plugin-transform-modules-commonjs"
+      ]
+    }
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack --mode production",
     "watch": "webpack --watch",
     "dev": "webpack --mode development"
   },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    }
+   
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-env": "^7.14.5",
+    "@testing-library/jest-dom": "^5.14.1",
+    "babel-jest": "^27.0.2",
     "webpack": "^5.37.1",
     "webpack-cli": "^4.7.0"
   },
