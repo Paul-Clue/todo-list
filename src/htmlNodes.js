@@ -1,4 +1,4 @@
-const htmlNodes = `<div class="confirmDelete">
+const htmlNodes = `<div class="confirmDelete" >
 <h1 class="confirmText">Delete?</h1>
 <button class="btn btn-info deleteButton">Yes</button>
 <button class="btn btn-info deleteButton2">No</button>
@@ -14,11 +14,11 @@ const htmlNodes = `<div class="confirmDelete">
     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
   </div>
   <div class="modal-body">
-    <input type="hidden" id="idButt">
+    <input type="hidden" id="idButt" value= 10>
     <form action="#" method="post" class="todo-form">
       <input type="text" name="title2" id="title2" placeholder="Title" ><br>
       <input type="text" name="description2" id="description2" placeholder="what Needs To Be Done"><br>
-      <input type="date" name="date2" id="date2" placeholder="Due Date"><br>
+      <input type="date" name="date2" id="date2" placeholder="Due Date" value="2014-02-09"><br>
       <input type="button" class="editButt" value="Edit">
     </form>
     <span class="priority">
@@ -67,9 +67,9 @@ const htmlNodes = `<div class="confirmDelete">
   <section id="right-section">
       <h3 class="projectTitle">Project: &nbsp; All ToDos</h3>
     <form action="#" method="post" class="todo-form todo-form-form">
-      <input type="text" name="title" id="title" placeholder="Title" ><br>
+      <input type="text" name="title" id="title" placeholder="Title" value ="New"><br>
       <input type="text" name="description" id="description" placeholder="what Needs To Be Done"><br>
-      <input type="date" name="date" id="date" placeholder="Due Date"><br>
+      <input type="date" name="date" id="date" placeholder="Due Date" value="2014-02-09"><br>
       <input type="button" class="butt" value="Add ToDo">
     </form>
     <span class="priority">

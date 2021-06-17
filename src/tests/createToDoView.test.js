@@ -1,10 +1,9 @@
 import htmlNodes from '../htmlNodes';
-import createToDoView from '../createToDoView';
 
-test('Create a to-do', () => {
-
+test('Create a div for all toDos', () => {
   document.body.innerHTML = htmlNodes;
-  const appendage = document.querySelector('.toDos');
-  createToDo();
-  expect( appendage.firstChild).not.toBeNull();
+
+  jest.mock('../createToDoView');
+  const doList = document.querySelector('.toDoList');
+  expect(doList).not.toBeNull();
 });

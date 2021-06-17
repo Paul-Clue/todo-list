@@ -37,8 +37,6 @@ const allToDo = function (e) {
   removeAllChildNodes(appendage);
 
   appendage.appendChild(doList);
-  // localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(e.parentElement.id, 10)]));
-  // localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
   projectView(e.innerText);
 

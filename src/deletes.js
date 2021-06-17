@@ -29,10 +29,11 @@ const deletes = () => {
 
       localStorage.setItem('cardArray', JSON.stringify(cardArray));
     }
-
-    const hide = document.querySelector('.confirmDelete');
-    hide.style.display = 'none';
+    cardArray[1] = 5;
+    localStorage.setItem('cardArray', JSON.stringify(cardArray));
   }
+  const hide = document.querySelector('.confirmDelete');
+  hide.style.display = 'none';
 };
 
 export default deletes;

@@ -1,8 +1,6 @@
 import newProject from './newProject';
 import createToDoView from './createToDoView';
 
-const projectSide = document.querySelector('.projects');
-
 let cardArray = [];
 if (localStorage.getItem('cardArray') === null) {
   localStorage.setItem('cardArray', JSON.stringify([]));
