@@ -4,7 +4,6 @@ import startUp from './startUp';
 import editToDo from './editToDo';
 import allToDo from './allToDo';
 import deletes from './deletes';
-import no from './no';
 
 let projArray = []; // eslint-disable-line
 if (localStorage.getItem('projArray') === null) { // eslint-disable-line
@@ -23,6 +22,11 @@ const getVal = (elem) => {
 const getVal2 = (elem) => {
   const val = elem.target.value;
   document.getElementById('result2').value = val;
+};
+
+const no = () => {
+  const hide = document.querySelector('.confirmDelete');
+  hide.style.display = 'none';
 };
 
 const rad1 = document.querySelector('#one');

@@ -1,8 +1,6 @@
 import newProject from './newProject';
 import createToDoView from './createToDoView';
 
-const projectSide = document.querySelector('.projects');
-
 let cardArray = [];
 if (localStorage.getItem('cardArray') === null) {
   localStorage.setItem('cardArray', JSON.stringify([]));
@@ -18,6 +16,7 @@ if (localStorage.getItem('projArray') === null) {
 }
 
 const createNewProject = () => {
+  const projectSide = document.querySelector('.projects');
   const projectName = document.querySelector('#projectName');
   if (projectName.value === '') {
     alert('Please Enter a Project Title');

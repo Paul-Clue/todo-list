@@ -107,6 +107,7 @@ const createToDo = (elem) => {
     };
 
     cardArray = JSON.parse(localStorage.getItem('cardArray'));
+    doList.innerText = 'Testing Testing';
     if (doList.firstChild == null) {
       doList.firstChild = null;
     } else {

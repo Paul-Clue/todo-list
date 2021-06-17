@@ -77,9 +77,7 @@ const startUp = function () {
     modal.style.display = 'block';
   };
 
-  if (doList.firstChild == null) {
-    doList.firstChild = null;
-  } else {
+  if (doList.firstChild != null) {
     const doListChildren = doList.children;
     for (let i = 0; i < doListChildren.length; i += 1) {
       doListChildren[i].addEventListener('click', switchId);

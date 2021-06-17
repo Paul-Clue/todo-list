@@ -8,7 +8,7 @@ if (localStorage.getItem('cardArray') === null) {
   cardArray = JSON.parse(localStorage.getItem('cardArray'));
 }
 
-const allToDo = function () {
+const allToDo = function (e) {
   const appendage = document.querySelector('.toDos');
   const doList = document.createElement('div');
   doList.setAttribute('class', 'toDoList');
@@ -37,10 +37,8 @@ const allToDo = function () {
   removeAllChildNodes(appendage);
 
   appendage.appendChild(doList);
-  localStorage.setItem('cardArray[parseInt(elem.target.id)]', JSON.stringify(cardArray[parseInt(this.parentElement.id, 10)]));
-  localStorage.setItem('cardArray', JSON.stringify(cardArray));
 
-  projectView(this.innerText);
+  projectView(e.innerText);
 
   const changeId = document.querySelector('#idButt');
   const changeId2 = document.querySelector('.deleteButton');
@@ -54,9 +52,7 @@ const allToDo = function () {
     modal.style.display = 'block';
   };
 
-  if (doList.firstChild == null) {
-    doList.firstChild = null;
-  } else {
+  if (doList.firstChild != null) {
     const doListChildren = doList.children;
     for (let i = 0; i < doListChildren.length; i += 1) {
       doListChildren[i].addEventListener('click', switchId);
