@@ -34,7 +34,7 @@ git clone https://github.com/Paul-Clue/todo-list/tree/feature/list
 - The interface is very intuitive. Create to-dos and specific projects for to-dos by clicking on the appropriate buttons.
 
 ## Testing
-In order to test the functions that make up this app, simply type the following in your terminal/command prompt and proess enter:
+In order to test the functions that make up this app, simply type the following in your terminal/command prompt and press enter:
 ```
 npm run test
 ````
